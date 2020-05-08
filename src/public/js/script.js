@@ -1,8 +1,8 @@
 (function ($) {
-    $('#citiesTable').DataTable();
+    $('#taxTable').DataTable();
     $(".submit_delete").click(function(event){
-        let id = $(this).parent().prop('name');
-        console.log(id)
+        let index = $(this).parent().prop('name');
+        console.log(index)
         $.ajax({
             method:"POST",
             url:"/"+id+"?_method=DELETE",

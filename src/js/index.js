@@ -1,15 +1,12 @@
 (function ($) {
-    $('#citiesTable').DataTable( {
-        "ajax": "http://localhost:9080/api/v1/cities",
+    $('#taxTable').DataTable( {
+        "ajax": "http://localhost:9080/api/v1/taxables",
         "columns": [
-            { "data": "id" },
-            { "data": "fldName" },
-            { "data": "fldLat" },
-            { "data": "fldLong" },
-            { "data": "fldCountry" },
-            { "data": "fldAbbreviation" },
-            { "data": "fldCapitalStatus" },
-            { "data": "fldPopulation" }
+            { "data": "Index" },
+            { "data": "Item" },
+            { "data": "Cost" },
+            { "data": "Tax" },
+            { "data": "Total" }
 
         ]
     } );

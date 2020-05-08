@@ -1,9 +1,9 @@
 const connection = require('../Data');
 
-class CityModel{
+class TaxModel{
     static findAll(){
         let result = new Promise((resolve, reject) => {
-            connection.query('SELECT * FROM tblCitiesImport', function (err, rows, fields) {
+            connection.query('SELECT * FROM tbltaxablesImport', function (err, rows, fields) {
                 if (err) reject(err)
                 resolve(rows);
             })
@@ -13,17 +13,16 @@ class CityModel{
 
     static create(city = {}){
         console.log(city)
-        let  {fldName ,fldLat , fldLong , fldCountry , fldAbbreviation , fldCapitalStatus , fldPopulation } = city;
+        let  {Index ,Item , fldLong , fldCountry , fldAbbreviation , fldCapitalStatus , fldPopulation } = city;
         let query = 'INSERT INTO ' +
-            'tblCitiesImport (fldName,fldLat,fldLong,fldCountry,fldAbbreviation,fldCapitalStatus,fldPopulation)' +
+            'tbltaxablesImport (Index,Item,Cost,Tax,Total)' +
             ' VALUES (' +
-            connection.escape(fldName) + ',' +
-            connection.escape(fldLat) + ',' +
-            connection.escape(fldLong) + ',' +
-            connection.escape(fldCountry)+ ',' +
-            connection.escape(fldAbbreviation)+ ',' +
-            connection.escape(fldCapitalStatus)+ ',' +
-            connection.escape(fldPopulation) + ')'
+            connection.escape(Index) + ',' +
+            connection.escape(Item) + ',' +
+            connection.escape(Cost) + ',' +
+            connection.escape(Tax)+ ',' +
+            connection.escape(Total)+ ','
+
         let result = new Promise((resolve, reject) => {
             connection.query(query
                 , function (err, rows, fields) {
@@ -34,9 +33,9 @@ class CityModel{
         return result;
     }
 
-    static findById(id){
+    static findById(index){
         let result = new Promise((resolve, reject) => {
-        connection.query('SELECT * FROM tblCitiesImport where id=' + connection.escape(id), function (err, rows, fields) {
+        connection.query('SELECT * FROM tbltaxablesImport where index=' + connection.escape(index), function (err, rows, fields) {
             if (err) reject(err)
             resolve(rows[0]);
         })
@@ -47,8 +46,8 @@ class CityModel{
     static updateById(id,city={}){
         let result = new Promise((resolve, reject) => {
             let query = 'UPDATE tblCitiesImport SET ' +
-                "fldName="+ connection.escape(city.fldName) + "," +
-                "fldLat="+  connection.escape(city.fldLat) + "," +
+                "Index="+ connection.escape(city.Index) + "," +
+                "Item="+  connection.escape(city.Item) + "," +
                 "fldLong=" + connection.escape(city.fldLong) + "," +
                 "fldCountry=" + connection.escape(city.fldCountry) + "," +
                 "fldAbbreviation=" + connection.escape(city.fldAbbreviation) + ","+
@@ -75,4 +74,4 @@ class CityModel{
 }
 
 
-module.exports = CityModel;
+module.exports = TaxModel;

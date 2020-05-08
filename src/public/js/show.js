@@ -1,8 +1,8 @@
 $(document).ready(function(){
-    let  cityId = $(".card-title").attr('key');
-    let cityName = $(".card-title").attr("name");
+    let  taxId = $(".card-title").attr('Index');
+    let taxName = $(".card-title").attr("Name");
     let query = {client_id:"YOUR_API_KEY",
-        query:cityName}
+        query:taxName}
     let qs = $.param(query);
     $.ajax({
         url:"https://api.unsplash.com/search/photos/?"+qs,

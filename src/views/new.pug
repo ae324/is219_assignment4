@@ -9,7 +9,7 @@ div(class = "container")
     a(href='/' ) <- Go Back
     h1 Create a new city
     form(action="/", method="post")
-        - var values = ["id","fldName","fldLat","fldLong","fldCountry","fldAbbreviation","fldCapitalStatus","fldPopulation"];
+        - var values = ["id","Index","Item","fldLong","fldCountry","fldAbbreviation","fldCapitalStatus","fldPopulation"];
         each val in values
             +form-group(val)
         input(type="submit", name="submit", class="btn btn-success page_submit")

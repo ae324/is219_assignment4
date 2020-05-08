@@ -9,8 +9,8 @@ div(class = "container")
         thead
             tr
                 th( scope="col") id
-                th( scope="col") fldName
-                th( scope="col") fldLat
+                th( scope="col") Index
+                th( scope="col") Item
                 th( scope="col") fldLong
                 th( scope="col") fldCountry
                 th( scope="col") fldAbbreviation
@@ -20,8 +20,8 @@ div(class = "container")
             tr(class="city_record" onclick="city_record_click(event)" key=city.id)
                 td #{city.id}
                 td
-                    a(href="/"+city.id) #{city.fldName}
-                td #{city.fldLat}
+                    a(href="/"+city.id) #{city.Index}
+                td #{city.Item}
                 td #{city.fldLong}
                 td #{city.fldCountry}
                 td #{city.fldAbbreviation}

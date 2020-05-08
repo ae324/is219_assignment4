@@ -1,12 +1,14 @@
 (function ($) {
-    $('#taxTable').DataTable( {
-        "ajax": "http://localhost:9080/api/v1/taxables",
+    $('#mlbTable').DataTable( {
+        "ajax": "http://localhost:9080/api/v1/mlb",
         "columns": [
-            { "data": "Index" },
-            { "data": "Item" },
-            { "data": "Cost" },
-            { "data": "Tax" },
-            { "data": "Total" }
+            { "data": "id" },
+            { "data": "Name" },
+            { "data": "Team" },
+            { "data": "Position" },
+            { "data": "Height_inches" },
+            { "data": "Weight_lbs" },
+            { "data": "Age" }
 
         ]
     } );

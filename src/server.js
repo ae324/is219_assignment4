@@ -7,18 +7,18 @@ app.use(express.static('docs'));
 open("http://localhost:9080");
 
 
-app.get('/api/v1/taxables', function(req, res) {
+app.get('/api/v1/mlb', function(req, res) {
     const mysql = require('mysql')
     const connection = mysql.createConnection({
         host: 'localhost',
         port: '32000',
         user: 'root',
         password: 'root',
-        database: 'taxableData'
+        database: 'mlbData'
     });
     connection.connect();
 
-    connection.query('SELECT * FROM tbltaxablesImport', function (err, rows, fields) {
+    connection.query('SELECT * FROM mlb', function (err, rows, fields) {
         if (err) throw err;
         res.json({ "data": rows});
     })
